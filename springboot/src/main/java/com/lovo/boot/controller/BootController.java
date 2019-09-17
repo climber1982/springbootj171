@@ -22,12 +22,5 @@ public class BootController {
             return "error";
         }
     }
-    @RequestMapping("savaUser")
-    public  String savaUser(){
-        UserEntity userEntity=new UserEntity();
-        userEntity.setUserName("赵云");
-        userEntity.setPassword("123456");
-        userService.savaUser(userEntity);
-        return "保持成功";
-    }
+
 }

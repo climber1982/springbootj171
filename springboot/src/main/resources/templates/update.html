@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>保存用户</title>
+    <meta charset="UTF-8"/>
+  </head>
+  
+  <body>
+
+    <form th:action="@{/savaUser}" method="post">
+        <input type="hidden" name="userId" th:value="${user.userId}"/>
+       用户名： <input type="text" name="userName" th:value="${user.userName}"/>  <p/>
+       用户密码： <input type="text" name="password" th:value="${user.password}"><p/>
+        <input type="submit" value="修改"/>
+
+    </form>
+     
+    
+  </body>
+</html>
