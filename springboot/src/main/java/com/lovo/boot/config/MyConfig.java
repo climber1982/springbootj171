@@ -20,6 +20,7 @@ public class MyConfig implements WebMvcConfigurer {
      */
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/img/**").addResourceLocations("file:D:/imgfile/");
     }
 
     /**
