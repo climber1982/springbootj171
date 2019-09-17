@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>index.html</title>
+    <meta charset="UTF-8"/>
+    <script src="/static/myjs.js"></script>
+  </head>
+  
+  <body th:object="${user}" onload="test()">
+     <span th:text="*{userName}"></span>  <p/>
+     <span th:text="${user.password}"></span>
+    
+  </body>
+</html>

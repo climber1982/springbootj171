@@ -16,4 +16,9 @@ public class UserServiceImpl implements IUserService {
     public void savaUser(UserEntity userEntity) {
         userDao.save(userEntity);
     }
+
+
+    public UserEntity findByUserNameAndPasssword(UserEntity user) {
+        return userDao.findByUserNameAndPasssword(user.getUserName(),user.getPassword());
+    }
 }

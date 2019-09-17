@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>index.html</title>
+    <meta charset="UTF-8"/>
+    <script src="/static/myjs.js"></script>
+  </head>
+  
+  <body>
+
+    <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+
+         <input type="file" name="fileName"/>
+
+        <input type="submit" value="上传"/>
+    </form>
+     
+    
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>index.html</title>
+    <meta charset="UTF-8"/>
+
+  </head>
+  
+  <body>
+
+  <form th:action="@{/savaUser}" method="post">
+
+    用户名： <input type="text" name="userName"/>  <p/>
+    用户密码： <input type="text" name="userPassword"><p/>
+    <input type="submit" value="保存"/>
+    <span style="color: green" th:text="${ok}"></span>
+  </form>
+  </body>
+</html>
