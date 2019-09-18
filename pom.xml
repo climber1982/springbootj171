@@ -6,6 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>springboot</module>
+        <module>client</module>
+        <module>register</module>
     </modules>
     <name>springboot</name>
     <!-- <packaging>jar</packaging> -->
@@ -81,6 +83,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
 
+        </dependency>
+<!--cloud-->
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- fastJson json数组有关的 -->
