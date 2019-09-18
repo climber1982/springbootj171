@@ -1,5 +1,8 @@
 package com.lovo.boot.config;
 
+import com.lovo.boot.entity.UserEntity;
+import com.lovo.boot.util.MyInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -9,11 +12,22 @@ import org.springframework.web.servlet.config.annotation.*;
 @Component
 public class MyConfig implements WebMvcConfigurer {
 
+
 //	@Override
 //	public void addInterceptors(InterceptorRegistry registry) {
 //
 //		registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**");
 //	}
+
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MyInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/info/*");
+
+
+    }
 
     /**
      * 放过静态资源

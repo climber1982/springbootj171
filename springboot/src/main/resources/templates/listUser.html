@@ -18,11 +18,16 @@
             <td th:text="${user.password}"></td>
             <td><a th:href="@{delUser(id=${user.userId})}">删除</a>/
                 <a th:href="@{gotoUpdate(id=${user.userId})}">修改</a>
+           <input type="button" value="id" th:onclick="ff([[${user.userId}]])">
             </td>
         </tr>
 
     </table>
-     
+       <script type="text/javascript">
+           function  ff(id) {
+               alert(id);
+           }
+       </script>
     
   </body>
 </html>

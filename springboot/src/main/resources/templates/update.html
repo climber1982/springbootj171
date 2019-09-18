@@ -14,7 +14,11 @@
         <input type="submit" value="修改"/>
 
     </form>
-     
+         <script type="text/javascript" th:inline="javascript" >
+
+             var c= [[${user.userName}]];
+           alert(c);
+         </script>
     
   </body>
 </html>
