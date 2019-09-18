@@ -18,7 +18,7 @@ public class BootController {
 
     @RequestMapping("info/{tag}")
     public  String hello(@PathVariable int tag){
-           int i=1/0;
+
         if(tag==0){
             return "hello world"+userBean.getUserName();
         }else if(tag==1){

@@ -37,16 +37,17 @@ public class MyConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/img/**").addResourceLocations("file:D:/imgfile/");
     }
 
+
     /**
      * 跨域
      */
 //	@Override
-//	public void addCorsMappings(CorsRegistry registry) {
-////		registry.addMapping("/**")
-////				.allowedMethods("*")  //允许所有的请求方式
-////				.allowedOrigins("*")//允许所有的请求域名
-////				.allowedHeaders("*");//允许所有的请求头
-//	}
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**")
+				.allowedMethods("*")  //允许所有的请求方式
+				.allowedOrigins("*")//允许所有的请求域名
+				.allowedHeaders("*");//允许所有的请求头
+	}
 
 
 
