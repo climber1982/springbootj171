@@ -5,6 +5,7 @@ import com.lovo.boot.util.MyInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
  * 配置类
@@ -48,7 +49,11 @@ public class MyConfig implements WebMvcConfigurer {
 				.allowedOrigins("*")//允许所有的请求域名
 				.allowedHeaders("*");//允许所有的请求头
 	}
-
+    //websocket 放入到spring容器
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
+    }
 
 
 //	public void addCorsMappings(CorsRegistry registry) {
