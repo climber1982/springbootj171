@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "sys_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
     @Id
     @GenericGenerator(name = "uuuuid",strategy = "uuid")
     @GeneratedValue(generator = "uuuuid")

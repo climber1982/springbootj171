@@ -3,9 +3,12 @@ package com.lovo.boot.service.impl;
 import com.lovo.boot.dao.IUserDao;
 import com.lovo.boot.entity.UserEntity;
 import com.lovo.boot.service.IUserService;
+import com.lovo.boot.util.JedisDB;
+import com.lovo.boot.util.SerializeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 
 import java.util.List;
 
@@ -21,7 +24,21 @@ public class UserServiceImpl implements IUserService {
 
 
     public UserEntity findByUserNameAndPasssword(UserEntity user) {
-        return userDao.findByUserNameAndPasssword(user.getUserName(),user.getPassword());
+      //从缓存中查询
+        String key=user.getUserName()+"_"+user.getPassword();
+       Jedis j= JedisDB.createJedis();
+        byte[] userbyte= j.get(key.getBytes());
+       if(null==userbyte){
+           //查询数据库
+           user=       userDao.findByUserNameAndPasssword(user.getUserName(),user.getPassword());
+         byte[] bytes=  SerializeUtil.serialize(user);
+           //放入缓存
+           j.set(key.getBytes(),bytes);
+       }  else {
+           //获取缓存数据
+           user= (UserEntity) SerializeUtil.unserizlize(userbyte);
+       }
+        return user;
     }
 
     @Override
